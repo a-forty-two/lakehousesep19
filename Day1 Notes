@@ -1,0 +1,139 @@
+
+
+Big data-> data too large for 1 machine!
+1 machine = 2 numbers
+
+1,2,3 -> big data!
+
+M1-> 1,2 ———replicate——— M3-> 1,2
+M2-> 3												M4-> 3
+
+SUM: M1= 1+2 = 3; M2= 3 ; = M1+m2 = 1+2+3 = 6
+
+Sharding: 
+
+M1-> 1,2 				M2-> 2,3				M3-> 3,1 
+
+M1=3, M2=5, M3= 4
+1+2+3 = 12
+
+
+MapReduce (Driver-Worker)
+
+Hadoop / HDFS (replication starts at 3)
+Disk based 
+
+RAM-> performance , cost -> higher
+
+Disk-> data at beginning-> fastest, bottom-> slowest
+RAM-> access ANYWHERE randomly-> data will be fetched f(T) -> you can guarantee this behaviour on small RAM sizes-
+RAM < Storage 
+
+
+
+HDFS (Disk big data)———— Spark (In Memory Analysis)
+
+-> bring it in here!
+-> Batch
+	- SQL-> Apache HIVE
+	- NoSQL-> HBase
+
+-> Stream
+	- Building a stream-> Kafka
+	- Consuming a stream-> Storm 
+
+Cloud-> HDFS -> replaced with Data Lake 
+				-> GCS, S3, Azure Storage
+						-> HDFS compatible 
+
+hdfs:// -> gs://, s3://, adls://
+
+Databricks -> computing substitute for Apache Spark
+						-> optimised for the cloud
+						-> use cloud virtual infra instead of on-prem		
+						-> PaaS
+									- NO CONFIGURATIONS, NETWORKING,
+						-> Security is a shared responsibility
+
+			    
+M1-> 1,2 ———replicate——— M3-> 1,2
+M2-> 3												M4-> 3
+
+
+
+M1-> 1,2 				M2-> 2,3				M3-> 3,1 
+
+ each ops = 1ms
+Edit the data-> change 2 to 4
+					1 			2			3				4
+M1->			NF		F			R								longest= 3
+M2->			NF		-											total = 4
+
+Shards:
+M1 				NF		F			R				-				longest= 3
+M2				F			R			NF			-				total = 8
+M3				NF		NF		-
+
+M1-> 1,2 ———replicate——— M3-> 1,2
+M2-> 3												M4-> 3
+
+M1-> 1,2 				M2-> 2,3				M3-> 3,1 
+Search the data-> searching for 2
+					1			2			3				4
+M1->			NF		F			-							longest= 2
+M2->			NF		-										total = 3
+
+M1				NF 		-										longest=1
+M2				F			-										total = 3
+M3				NF		-
+
+Fault Tolerance
+
+Worker - Driver
+
+
+
+				Imperative				Declarative
+				How to do?				What to do-> system figures how?
+
+a=1				a=?			1					True
+b=2			b=?			2					True
+c=a+b		c=?			3					True
+print(c)		??			“3”				Execute-> “3”
+								Python				PySpark/Scala/Spark SQL
+
+SQL-> select * from blah; -> C++ -> file system
+Spark/Hadoop -> 
+			PySpark
+			Scala
+			Java						—— Scala —— Java —> execution
+			SQL
+			R
+
+A = 1								a=1
+B = 2								b=2
+C = A+1				—— d = A+3
+D = C+2						print(d)
+print(d)
+
+Transformation-> operations are BUILT; NOT executed!
+
+Action-> Transformations are optimised, merged into
+			smaller faster ops; then executed!
+
+
+
+Sharding-> shards of data 
+
+Flat structure-> BLOB-> binary large objects
+
+Blob storage-> FLAT file system-> blobs are dumped 
+
+Filesystem-> /newfolder/data/my.csv
+UI-> we will see a folder! -> ONLY IN THE UI!
+
+
+TB/PB-> RBAC, heirarchial permissions
+	-> help of FOLDERS!
+	-> Enable HRCH. Namespace-> create folders!
+
