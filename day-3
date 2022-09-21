@@ -1,0 +1,30 @@
+
+2 architecture styles:
+
+Lambda:
+	2 separate architectures: Batch, Stream 
+			Data Lake-> Data Factory-> Synapse
+			
+			Sensor-> IoT Hub-> Stream Analytics-> Synapse
+
+Kappa:
+			Spark Structured Streaming
+
+	unified architecture for batch and stream 
+			Delta Lake- type of Kappa Architecture 
+			MPP - massive parallel processing 
+					- streaming API (Synapse/SQL DW/Snowflake) 
+
+Open source/Azure:
+	-> Delta -> stream/batch-> batch process
+				-> Transformations and Actions
+Google/Open Source:
+	-> Apache Beam-> stream/batch-> stream process
+				-> pDATA and pTransform 
+
+Both-> DAG is formed 
+
+Graph Theory-> Cyclic and Acyclic 
+									-> directed or undirected 
+
+
